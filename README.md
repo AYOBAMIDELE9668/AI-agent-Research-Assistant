@@ -8,6 +8,10 @@ This project is an AI Research Assistant built using **LangGraph** and **Google 
 
 ## Folder Structure
 
+pp", "--host", "0.0.0.0", "--port", "8000"]
+## fastapi_app.py
+
+```python
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from main import run_research_agent
@@ -24,7 +28,8 @@ def research(q: Query):
     result = run_research_agent(q.topic)
     return {"topic": q.topic, "research_output": result}
 
-# Run: uvicorn fastapi_app:app --reload --host 0.0.0.0 --port 8000
+# Run locally:
+# uvicorn fastapi_app:app --reload --host 0.0.0.0 --port 8000
 
 requirements.txt
 google-generativeai
@@ -44,4 +49,4 @@ COPY . .
 
 ENV GEMINI_API_KEY=""
 
-CMD ["uvicorn", "fastapi_app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "fastapi_app:app", "--host", "0.0.0.0", "--port", 8000]
